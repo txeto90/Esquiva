@@ -5,7 +5,8 @@ using UnityEngine;
 public class CannonShooter : MonoBehaviour
 {
 
-    public GameObject bulletCanon;
+    
+    
     public float frequency;
 
 
@@ -15,39 +16,14 @@ public class CannonShooter : MonoBehaviour
         InvokeRepeating("FireBullet", 2f, 2f);
     }
 
-
-    void Update()
-    {
-        //Invoke("FireBullet", frequency);
-    }
-
     void FireBullet()
     {
-        //get a reference to the player
-        GameObject player = GameObject.Find("Player");
+        var spawners = SpawnerManager.Instance.spawners;
 
-        if (player != null)
-        {
-            for (float i = 0; i < Mathf.PI; i += (Mathf.PI / 4))
-            {
-                if (Random.value <= 0.5)
-                {
-                    continue;
-                }
-                //instatiate an enemy bullet
-                GameObject bullet = (GameObject)Instantiate(bulletCanon);
+        spawners[Random.Range(0, spawners.Count)].GetComponent<SpawnerType>().shoot(transform);
+        //spawners[1].GetComponent<SpawnerType>().shoot(transform);
 
-                //set the bullet's initial position
-                bullet.transform.position = transform.position;
-
-                //computes the bullets direction towards the player
-                //convertir PI de radiant a degree i posar en funcio vector2 en compte de i
-                Vector2 direction = (Vector2)(Quaternion.Euler(0, 0, i) * Vector2.right); //player.transform.position - bullet.transform.position;
-
-                //set the bullet's direction
-                bullet.GetComponent<BulletMovement>().SetDirection(direction);
-            }
-        }
     }
+
 
 }

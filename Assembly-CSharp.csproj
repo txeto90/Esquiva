@@ -67,6 +67,10 @@
     <Compile Include="Assets\BulletMovement.cs" />
     <Compile Include="Assets\CannonShooter.cs" />
     <Compile Include="Assets\Movement.cs" />
+    <Compile Include="Assets\SpawnerManager.cs" />
+    <Compile Include="Assets\SpawnerTypes\ChacePlayer.cs" />
+    <Compile Include="Assets\SpawnerTypes\Radial.cs" />
+    <Compile Include="Assets\SpawnerTypes\SpawnerType.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.17f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
