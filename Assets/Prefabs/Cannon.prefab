@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 520704216542841193}
   - component: {fileID: 520704216542841194}
   - component: {fileID: 520704216542841191}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cannon
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 520704216542841196}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.68, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -106,6 +106,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09625ff2db0d8534da42866ebad36159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletCanon: {fileID: 5011759259358096326, guid: 5dd29aaa7069213449048ee0c334b613,
-    type: 3}
   frequency: 1

@@ -1,24 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class Radial : SpawnerType
+public class Radial : IBulletSpawner
 {
-    public override void shoot(Transform transform)
+    public List<GameObject> Shoot(Transform t)
     {
-        //get a reference to the player
+        // get a reference to the player
         GameObject player = GameObject.Find("Player");
 
         if (player != null)
         {
-            for (float i = 0; i < Mathf.PI * 2f; i += ((Mathf.PI * 2f) / 3f))
+            var bulletsSpawned = new List<GameObject>();
+            const float PI2 = Mathf.PI * 2f;
+            for (float i = 0; i < PI2; i += PI2 / 3f)
             {
                 float angle = Mathf.Rad2Deg * i;
-                GameObject bullet = (GameObject)Instantiate(SpawnerManager.Instance.bulletCanon, transform.position, Quaternion.Euler(angle, 90, 0), transform);
-                bullet.transform.localScale = Vector3.one;
-                bullet.GetComponent<MeshRenderer>().material.color = new Color(Random.value, Random.value, Random.value, 1.0f);
-
+                var bullet = GameFactory.Instance.InstantiateObject(PrefabManager.Instance.GetRandomBullet(), t.position, Quaternion.Euler(angle, 90, 0), t);
+                bulletsSpawned.Add(bullet);
             }
+            return bulletsSpawned;
         }
+        return null;
     }
 }
